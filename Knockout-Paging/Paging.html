@@ -1,0 +1,21 @@
+﻿<ul data-bind="visible: NeedPaging" class="flip pull-right pagination pagination-sm">
+    <li data-bind="css: { disabled: !FirstPageActive() }">
+        <a data-bind="click: GoToFirst">First</a>
+    </li>
+    <li data-bind="css: { disabled: !PreviousPageActive() }">
+        <a data-bind="click: GoToPrevious">Previous</a>
+    </li>
+
+    <!-- ko foreach: GetPages() -->
+    <li data-bind="css: { active: $parent.CurrentPage() == ($index() + 1) }">
+        <a data-bind="click: $parent.GoToPage, text: $index() + 1"></a>
+    </li>
+    <!-- /ko -->
+
+    <li data-bind="css: { disabled: !NextPageActive() }">
+        <a data-bind="click: GoToNext">Next</a>
+    </li>
+    <li data-bind="css: { disabled: !LastPageActive() }">
+        <a data-bind="click: GoToLast">Last</a>
+    </li>
+</ul>
