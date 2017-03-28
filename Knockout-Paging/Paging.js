@@ -5,7 +5,7 @@
     self.CurrentPage = ko.observable(1);
     self.TotalCount = ko.observable(options.totalCount);
 
-    self.PageCount = ko.computed(function () {
+    self.PageCount = ko.pureComputed(function () {
         return Math.ceil(self.TotalCount() / self.PageSize());
     });
 
@@ -20,41 +20,41 @@
     };
 
     self.FirstPage = 1;
-    self.LastPage = ko.computed(function () {
+    self.LastPage = ko.pureComputed(function () {
         return self.PageCount();
     });
 
-    self.NextPage = ko.computed(function () {
+    self.NextPage = ko.pureComputed(function () {
         var next = self.CurrentPage() + 1;
         if (next > self.LastPage())
             return null;
         return next;
     });
 
-    self.PreviousPage = ko.computed(function () {
+    self.PreviousPage = ko.pureComputed(function () {
         var previous = self.CurrentPage() - 1;
         if (previous < self.FirstPage)
             return null;
         return previous;
     });
 
-    self.NeedPaging = ko.computed(function () {
+    self.NeedPaging = ko.pureComputed(function () {
         return self.PageCount() > 1;
     });
 
-    self.NextPageActive = ko.computed(function () {
+    self.NextPageActive = ko.pureComputed(function () {
         return self.NextPage() != null;
     });
 
-    self.PreviousPageActive = ko.computed(function () {
+    self.PreviousPageActive = ko.pureComputed(function () {
         return self.PreviousPage() != null;
     });
 
-    self.LastPageActive = ko.computed(function () {
+    self.LastPageActive = ko.pureComputed(function () {
         return (self.LastPage() != self.CurrentPage());
     });
 
-    self.FirstPageActive = ko.computed(function () {
+    self.FirstPageActive = ko.pureComputed(function () {
         return (self.FirstPage != self.CurrentPage());
     });
 
@@ -96,13 +96,16 @@
         return pages;
     };
 
-    self.GetPages = function () {
+    self.GetPages = ko.pureComputed(function () {
+        self.CurrentPage();
+        self.TotalCount();
+        
         if (self.PageCount() <= maxPageCount) {
-            return self.generateAllPages();
+            return ko.observableArray(self.generateAllPages());
         } else {
-            return self.generateMaxPage();
+            return ko.observableArray(self.generateMaxPage());
         }
-    };
+    });
 
     self.Update = function (e) {
         self.TotalCount(e.TotalCount);

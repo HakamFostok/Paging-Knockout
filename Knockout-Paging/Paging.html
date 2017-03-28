@@ -7,8 +7,8 @@
     </li>
 
     <!-- ko foreach: GetPages() -->
-    <li data-bind="css: { active: $parent.CurrentPage() == ($index() + 1) }">
-        <a data-bind="click: $parent.GoToPage, text: $index() + 1"></a>
+    <li data-bind="css: { active: $parent.CurrentPage() === $data }">
+        <a data-bind="click: $parent.GoToPage, text: $data"></a>
     </li>
     <!-- /ko -->
 
