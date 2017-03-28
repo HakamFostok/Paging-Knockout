@@ -99,7 +99,7 @@
     self.GetPages = ko.pureComputed(function () {
         self.CurrentPage();
         self.TotalCount();
-        
+
         if (self.PageCount() <= maxPageCount) {
             return ko.observableArray(self.generateAllPages());
         } else {

@@ -83,6 +83,11 @@
                 }
                 self.PagaData(result);
             }
+
+            self.dispose = function () {
+                self.currentPageSubscription.dispose();
+                self.pageSizeSubscription.dispose();
+            }
         }
 
         $(function () {
