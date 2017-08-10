@@ -6,7 +6,11 @@
     self.TotalCount = ko.observable(options.totalCount);
 
     self.PageCount = ko.pureComputed(function () {
-        return Math.ceil(self.TotalCount() / self.PageSize());
+        if (self.PageSize() != 0) {
+            return Math.ceil(self.TotalCount() / self.PageSize());
+        } else {
+            return 0;
+        }
     });
 
     self.SetCurrentPage = function (page) {
