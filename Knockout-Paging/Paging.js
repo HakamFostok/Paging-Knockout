@@ -6,7 +6,7 @@
     self.TotalCount = ko.observable(options.totalCount);
 
     self.PageCount = ko.pureComputed(function () {
-        if (self.PageSize() != 0)
+        if (self.PageSize() !== 0)
             return Math.ceil(self.TotalCount() / self.PageSize());
         else
             return 0;
@@ -54,11 +54,11 @@
     });
 
     self.LastPageActive = ko.pureComputed(function () {
-        return (self.LastPage() != self.CurrentPage());
+        return (self.LastPage() !== self.CurrentPage());
     });
 
     self.FirstPageActive = ko.pureComputed(function () {
-        return (self.FirstPage != self.CurrentPage());
+        return (self.FirstPage !== self.CurrentPage());
     });
 
     // this should be odd number always
