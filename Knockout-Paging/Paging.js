@@ -1,4 +1,4 @@
-﻿function PagingVM(options) {
+﻿function PagingVm(options) {
     var self = this;
 
     self.PageSize = ko.observable(options.pageSize);
@@ -6,11 +6,10 @@
     self.TotalCount = ko.observable(options.totalCount);
 
     self.PageCount = ko.pureComputed(function () {
-        if (self.PageSize() != 0) {
+        if (self.PageSize() != 0)
             return Math.ceil(self.TotalCount() / self.PageSize());
-        } else {
+        else
             return 0;
-        }
     });
 
     self.SetCurrentPage = function (page) {
@@ -78,8 +77,9 @@
         var pageCount = self.PageCount();
         var first = self.FirstPage;
 
-        var upperLimit = current + parseInt((maxPageCount - 1) / 2);
-        var downLimit = current - parseInt((maxPageCount - 1) / 2);
+        var sectionLength = parseInt((maxPageCount - 1) / 2);
+        var upperLimit = current + sectionLength;
+        var downLimit = current - sectionLength;
 
         while (upperLimit > pageCount) {
             upperLimit--;
@@ -104,11 +104,10 @@
         self.CurrentPage();
         self.TotalCount();
 
-        if (self.PageCount() <= maxPageCount) {
+        if (self.PageCount() <= maxPageCount)
             return ko.observableArray(self.generateAllPages());
-        } else {
+        else
             return ko.observableArray(self.generateMaxPage());
-        }
     });
 
     self.Update = function (e) {
