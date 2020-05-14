@@ -1,20 +1,24 @@
- {
-    "name": "paging-knockout",
-    "description": "This is a component for paging in knockout.js",
-    "version": "1.0.0",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/HakamFostok/Paging-Knockout.git"
-    },
-    "keywords": ["js", "knockout", "paging"],
-    "author": "Hakam FOSOTK",
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/HakamFostok/Paging-Knockout/issues"
-    },
-    "homepage": "https://github.com/HakamFostok/Paging-Knockout"
-  }
+{
+  "name": "paging-knockout",
+  "description": "This is a component for paging in knockout.js",
+  "version": "1.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HakamFostok/Paging-Knockout.git"
+  },
+  "keywords": [
+    "js",
+    "knockout",
+    "paging"
+  ],
+  "author": "Hakam FOSOTK",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HakamFostok/Paging-Knockout/issues"
+  },
+  "homepage": "https://github.com/HakamFostok/Paging-Knockout"
+}
