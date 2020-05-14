@@ -1,6 +1,10 @@
 # Paging-Knockout
 Reusable Paging component using Knockout.js.
 
+**NPM Package** <br/>
+    
+    npm install paging-knockout
+
 **Features**
 
  1. **Show on need** <br/> When there is no need for paging at all (for example the items which need to display less than the page size) then the `HTML` component will disappear. <br/>
